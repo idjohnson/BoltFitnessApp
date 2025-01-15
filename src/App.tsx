@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { 
-  Heart, 
-  Dumbbell, 
-  Tangent, 
+import {
+  Heart,
+  Dumbbell,
+  Tangent,
   Timer,
   ChevronLeft,
   Star,
@@ -23,6 +23,7 @@ interface Exercise {
   reps: number;
   weight: string;
   rest: string;
+  duration?: string;
 }
 
 interface WorkoutDay {
@@ -37,7 +38,7 @@ const getStrengthPlan = (level: number): WorkoutDay[] => {
     const multiplier = level === 0 ? 0.5 : 1 + (level * 0.5);
     return `${Math.round(base * multiplier)}${level === 0 ? ' (or bodyweight)' : 'lbs'}`;
   };
-  
+
   const getReps = (base: number) => {
     if (level === 0) return 10;
     if (level < 3) return 12;
@@ -199,7 +200,7 @@ const getCardioPlan = (level: number): WorkoutDay[] => {
   const getIntensity = (base: number) => {
     return Math.min(95, Math.round(base + (level * 5))); // Increase intensity with level
   };
-  
+
   const getDuration = (base: number) => {
     const multiplier = level === 0 ? 0.7 : 1 + (level * 0.2);
     return Math.round(base * multiplier);
@@ -354,6 +355,126 @@ const getCardioPlan = (level: number): WorkoutDay[] => {
     }
   ];
 };
+const getFlexibilityPlan = (level: number): WorkoutDay[] => {
+  // Adjust difficulty based on level
+  const getIntensity = (base: number) => {
+    return Math.min(95, Math.round(base + (level * 5))); // Increase intensity with level
+  };
+
+  const getDuration = (base: number) => {
+    const multiplier = level === 0 ? 0.7 : 1 + (level * 0.2);
+    return Math.round(base * multiplier);
+  };
+
+  return [
+    { 
+      day: 'Monday', 
+      focus: 'Flexibility', 
+      exercises: [
+        { 
+          name: 'Hamstring Stretch', 
+          image: 'https://images.unsplash.com/photo-1701826510609-b8d07deca0d4?auto=format&fit=crop&q=80&w=2070', 
+          sets: 2, 
+          reps: 1, 
+          weight: 'N/A', 
+          rest: 'N/A', 
+          duration: `${getDuration(2)} mins` 
+        }
+      ] 
+    },
+    { 
+      day: 'Tuesday', 
+      focus: 'Flexibility', 
+      exercises: [
+        { 
+          name: 'Quad Stretch', 
+          image: 'https://images.unsplash.com/photo-1543971987-c328df79964d?auto=format&fit=crop&q=80&w=2070', 
+          sets: 2,
+          reps: 1, 
+          weight: 'N/A', 
+          rest: 'N/A', 
+          duration: `${getDuration(2)} mins` 
+        }
+      ] 
+    },
+    { 
+      day: 'Wednesday', 
+      focus: 'Flexibility', 
+      exercises: [
+        { 
+          name: 'Shoulder Stretch', 
+          image: 'https://images.unsplash.com/photo-1607914660217-754fdd90041d?auto=format&fit=crop&q=80&w=2070', 
+          sets: 2, 
+          reps: 1, 
+          weight: 'N/A', 
+          rest: 'N/A', 
+          duration: `${getDuration(2)} mins` 
+        }
+      ] 
+    },
+    { 
+      day: 'Thursday', 
+      focus: 'Flexibility', 
+      exercises: [
+        { 
+          name: 'Hamstring Stretch', 
+          image: 'https://images.unsplash.com/photo-1701826510609-b8d07deca0d4?auto=format&fit=crop&q=80&w=2070', 
+          sets: 2, 
+          reps: 1, 
+          weight: 'N/A', 
+          rest: 'N/A', 
+          duration: `${getDuration(2)} mins` 
+        }
+      ] 
+    },
+    { 
+      day: 'Friday', 
+      focus: 'Flexibility', 
+      exercises: [
+        { 
+          name: 'Quad Stretch', 
+          image: 'https://images.unsplash.com/photo-1543971987-c328df79964d?auto=format&fit=crop&q=80&w=2070', 
+          sets: 2, 
+          reps: 1, 
+          weight: 'N/A', 
+          rest: 'N/A', 
+          duration: `${getDuration(2)} mins` 
+        }
+      ] 
+    },
+    { 
+      day: 'Saturday', 
+      focus: 'Flexibility', 
+      exercises: [
+        { 
+          name: 'Shoulder Stretch', 
+          image: 'https://images.unsplash.com/photo-1607914660217-754fdd90041d?auto=format&fit=crop&q=80&w=2070', 
+          sets: 2, 
+          reps: 1, 
+          weight: 'N/A', 
+          rest: 'N/A', 
+          duration: `${getDuration(2)} mins` 
+        }
+      ] 
+    },
+    { 
+      day: 'Sunday', 
+      focus: 'Rest', 
+      exercises: 
+      [
+        { 
+          name: 'Rest', 
+          image: '', 
+          sets: 1, 
+          reps: 1, 
+          weight: 'N/A', 
+          rest: 'N/A' 
+        }
+      ] 
+    },
+  ];
+};
+};
 
 const workoutPlans = [
   {
@@ -392,7 +513,7 @@ export default function App() {
 
   const renderStars = (count: number) => {
     return Array(5).fill(0).map((_, index) => (
-      index < count ? 
+      index < count ?
         <Star key={index} className="w-8 h-8 text-yellow-400 cursor-pointer" onClick={() => setLevel(index + 1)} /> :
         <StarOff key={index} className="w-8 h-8 text-gray-300 cursor-pointer" onClick={() => setLevel(index + 1)} />
     ));
@@ -403,23 +524,23 @@ export default function App() {
     return (
       <div className="min-h-screen bg-gray-100">
         <div className="max-w-4xl mx-auto p-8">
-          <button 
+          <button
             onClick={() => setSelectedWorkout(null)}
             className="flex items-center text-gray-600 hover:text-gray-900 mb-8"
           >
             <ChevronLeft className="w-5 h-5 mr-2" />
             Back to Plans
           </button>
-          
+
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-            <div 
+            <div
               className="h-64 bg-cover bg-center"
               style={{ backgroundImage: `url(${selected?.image})` }}
             />
             <div className="p-8">
               <h2 className="text-3xl font-bold mb-4">{selected?.title}</h2>
               <p className="text-gray-600 mb-8">{selected?.description}</p>
-              
+
               <div className="space-y-4">
                 <h3 className="text-xl font-semibold">Select Your Level:</h3>
                 <div className="flex space-x-2">
@@ -438,18 +559,18 @@ export default function App() {
 
   if (selectedWorkout === 'cardio' && level !== null) {
     const workoutPlan = getCardioPlan(level);
-    
+
     return (
       <div className="min-h-screen bg-gray-100 p-8">
         <div className="max-w-6xl mx-auto">
-          <button 
+          <button
             onClick={() => setLevel(null)}
             className="flex items-center text-gray-600 hover:text-gray-900 mb-8"
           >
             <ChevronLeft className="w-5 h-5 mr-2" />
             Back to Level Selection
           </button>
-          
+
           <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-3xl font-bold">Your 7-Day Cardio Plan</h2>
@@ -460,7 +581,7 @@ export default function App() {
                 </div>
               </div>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {workoutPlan.map((day, index) => (
                 <div key={index} className="bg-gray-50 rounded-xl p-6 shadow-md">
@@ -469,12 +590,12 @@ export default function App() {
                     <h3 className="text-xl font-semibold">{day.day}</h3>
                   </div>
                   <p className="text-gray-600 mb-4">{day.focus}</p>
-                  
+
                   {day.exercises.map((exercise, exIndex) => (
                     <div key={exIndex} className="mb-4 last:mb-0">
                       <div className="aspect-video rounded-lg overflow-hidden mb-3">
-                        <img 
-                          src={exercise.image} 
+                        <img
+                          src={exercise.image}
                           alt={exercise.name}
                           className="w-full h-full object-cover"
                         />
@@ -505,18 +626,18 @@ export default function App() {
 
   if (selectedWorkout === 'strength' && level !== null) {
     const workoutPlan = getStrengthPlan(level);
-    
+
     return (
       <div className="min-h-screen bg-gray-100 p-8">
         <div className="max-w-6xl mx-auto">
-          <button 
+          <button
             onClick={() => setLevel(null)}
             className="flex items-center text-gray-600 hover:text-gray-900 mb-8"
           >
             <ChevronLeft className="w-5 h-5 mr-2" />
             Back to Level Selection
           </button>
-          
+
           <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-3xl font-bold">Your 7-Day Strength Plan</h2>
@@ -527,7 +648,7 @@ export default function App() {
                 </div>
               </div>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {workoutPlan.map((day, index) => (
                 <div key={index} className="bg-gray-50 rounded-xl p-6 shadow-md">
@@ -536,12 +657,12 @@ export default function App() {
                     <h3 className="text-xl font-semibold">{day.day}</h3>
                   </div>
                   <p className="text-gray-600 mb-4">{day.focus}</p>
-                  
+
                   {day.exercises.map((exercise, exIndex) => (
                     <div key={exIndex} className="mb-4 last:mb-0">
                       <div className="aspect-video rounded-lg overflow-hidden mb-3">
-                        <img 
-                          src={exercise.image} 
+                        <img
+                          src={exercise.image}
                           alt={exercise.name}
                           className="w-full h-full object-cover"
                         />
@@ -575,14 +696,14 @@ export default function App() {
     return (
       <div className="min-h-screen bg-gray-100 p-8">
         <div className="max-w-4xl mx-auto">
-          <button 
+          <button
             onClick={() => setLevel(null)}
             className="flex items-center text-gray-600 hover:text-gray-900 mb-8"
           >
             <ChevronLeft className="w-5 h-5 mr-2" />
             Back to Level Selection
           </button>
-          
+
           <div className="bg-white rounded-2xl shadow-xl p-8">
             <h2 className="text-3xl font-bold mb-4">Your Personalized Plan</h2>
             <div className="flex items-center space-x-2 mb-4">
@@ -614,12 +735,12 @@ export default function App() {
           {workoutPlans.map((plan) => {
             const Icon = plan.icon;
             return (
-              <div 
+              <div
                 key={plan.type}
                 className="group bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer transform transition-all duration-300 hover:scale-105"
                 onClick={() => setSelectedWorkout(plan.type as WorkoutType)}
               >
-                <div 
+                <div
                   className="h-48 bg-cover bg-center"
                   style={{ backgroundImage: `url(${plan.image})` }}
                 />
