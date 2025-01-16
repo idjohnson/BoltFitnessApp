@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 
 // Import local images
-import benchPress from './images/bench-press.jpg';
+import benchPress from './images/bench-press.png';
 import inclineDumbbellPress from './images/inclined-dumbell-press.png';
 import deadlifts from './images/deadlifts.png';
 import barbellRows from './images/barbell-rows.jpg';
