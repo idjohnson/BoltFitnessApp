@@ -14,6 +14,42 @@ import {
   Clock
 } from 'lucide-react';
 
+// Import local images
+import benchPress from './images/bench-press.jpg';
+import inclineDumbbellPress from './images/incline-dumbbell-press.jpg';
+import deadlifts from './images/deadlifts.jpg';
+import barbellRows from './images/barbell-rows.jpg';
+import squats from './images/squats.jpg';
+import legPress from './images/leg-press.jpg';
+import militaryPress from './images/military-press.jpg';
+import lateralRaises from './images/lateral-raises.jpg';
+import powerCleans from './images/power-cleans.jpg';
+import pushPress from './images/push-press.jpg';
+import dumbbellComplex from './images/dumbbell-complex.jpg';
+import coreCircuit from './images/core-circuit.jpg';
+import lightStretching from './images/light-stretching.jpg';
+import treadmillSprints from './images/treadmill-sprints.jpg';
+import jumpRopeIntervals from './images/jump-rope-intervals.jpg';
+import steadyStateRunning from './images/steady-state-running.jpg';
+import stairClimber from './images/stair-climber.jpg';
+import rowingIntervals from './images/rowing-intervals.jpg';
+import cycling from './images/cycling.jpg';
+import trackIntervals from './images/track-intervals.jpg';
+import agilityDrills from './images/agility-drills.jpg';
+import swimming from './images/swimming.jpg';
+import elliptical from './images/elliptical.jpg';
+import longDistanceRun from './images/long-distance-run.jpg';
+import coolDownWalk from './images/cool-down-walk.jpg';
+import lightWalking from './images/light-walking.jpg';
+import hamstringStretch from './images/hamstring-stretch.jpg';
+import quadStretch from './images/quad-stretch.jpg';
+import shoulderStretch from './images/shoulder-stretch.jpg';
+import restImage from './images/rest.jpg';
+import cardioImage from './images/cardio.jpg';
+import strengthImage from './images/strength.jpg';
+import flexibilityImage from './images/flexibility.jpg';
+import enduranceImage from './images/endurance.jpg';
+
 type WorkoutType = 'cardio' | 'strength' | 'flexibility' | 'endurance' | null;
 
 interface Exercise {
@@ -52,7 +88,7 @@ const getStrengthPlan = (level: number): WorkoutDay[] => {
       exercises: [
         {
           name: "Bench Press",
-          image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=2070",
+          image: benchPress,
           sets: 4,
           reps: getReps(12),
           weight: getWeight(45),
@@ -60,7 +96,7 @@ const getStrengthPlan = (level: number): WorkoutDay[] => {
         },
         {
           name: "Incline Dumbbell Press",
-          image: "https://images.unsplash.com/photo-1598632640487-6ea4a4e8b963?auto=format&fit=crop&q=80&w=2069",
+          image: inclineDumbbellPress ,
           sets: 3,
           reps: getReps(10),
           weight: getWeight(30),
@@ -74,7 +110,7 @@ const getStrengthPlan = (level: number): WorkoutDay[] => {
       exercises: [
         {
           name: "Deadlifts",
-          image: "https://images.unsplash.com/photo-1603287681836-b174ce5074c2?auto=format&fit=crop&q=80&w=2071",
+          image: deadlifts,
           sets: 4,
           reps: getReps(8),
           weight: getWeight(95),
@@ -82,7 +118,7 @@ const getStrengthPlan = (level: number): WorkoutDay[] => {
         },
         {
           name: "Barbell Rows",
-          image: "https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?auto=format&fit=crop&q=80&w=2070",
+          image: barbellRows,
           sets: 3,
           reps: getReps(12),
           weight: getWeight(65),
@@ -96,7 +132,7 @@ const getStrengthPlan = (level: number): WorkoutDay[] => {
       exercises: [
         {
           name: "Squats",
-          image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=2070",
+          image: squats,
           sets: 4,
           reps: getReps(10),
           weight: getWeight(85),
@@ -104,7 +140,7 @@ const getStrengthPlan = (level: number): WorkoutDay[] => {
         },
         {
           name: "Leg Press",
-          image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=2070",
+          image: legPress,
           sets: 3,
           reps: getReps(12),
           weight: getWeight(140),
@@ -118,7 +154,7 @@ const getStrengthPlan = (level: number): WorkoutDay[] => {
       exercises: [
         {
           name: "Military Press",
-          image: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=2069",
+          image: militaryPress,
           sets: 4,
           reps: getReps(10),
           weight: getWeight(45),
@@ -126,7 +162,7 @@ const getStrengthPlan = (level: number): WorkoutDay[] => {
         },
         {
           name: "Lateral Raises",
-          image: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&q=80&w=2070",
+          image: lateralRaises,
           sets: 3,
           reps: getReps(15),
           weight: getWeight(15),
@@ -140,7 +176,7 @@ const getStrengthPlan = (level: number): WorkoutDay[] => {
       exercises: [
         {
           name: "Power Cleans",
-          image: "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?auto=format&fit=crop&q=80&w=2070",
+          image: powerCleans,
           sets: 5,
           reps: getReps(5),
           weight: getWeight(65),
@@ -148,7 +184,7 @@ const getStrengthPlan = (level: number): WorkoutDay[] => {
         },
         {
           name: "Push Press",
-          image: "https://images.unsplash.com/photo-1586205208101-b9da5ef6120d?auto=format&fit=crop&q=80&w=2069",
+          image: pushPress,
           sets: 4,
           reps: getReps(8),
           weight: getWeight(55),
@@ -162,7 +198,7 @@ const getStrengthPlan = (level: number): WorkoutDay[] => {
       exercises: [
         {
           name: "Dumbbell Complex",
-          image: "https://images.unsplash.com/photo-1583454152670-3638e647bb5d?auto=format&fit=crop&q=80&w=2070",
+          image: dumbbellComplex,
           sets: 3,
           reps: getReps(10),
           weight: getWeight(25),
@@ -170,7 +206,7 @@ const getStrengthPlan = (level: number): WorkoutDay[] => {
         },
         {
           name: "Core Circuit",
-          image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=2070",
+          image: coreCircuit,
           sets: 3,
           reps: getReps(15),
           weight: "Bodyweight",
@@ -184,7 +220,7 @@ const getStrengthPlan = (level: number): WorkoutDay[] => {
       exercises: [
         {
           name: "Light Stretching",
-          image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=2070",
+          image: lightStretching,
           sets: 1,
           reps: 1,
           weight: "N/A",
@@ -213,7 +249,7 @@ const getCardioPlan = (level: number): WorkoutDay[] => {
       exercises: [
         {
           name: "Treadmill Sprints",
-          image: "https://images.unsplash.com/photo-1595058628627-b0bd9ea52c23?auto=format&fit=crop&q=80&w=2070",
+          image: treadmillSprints,
           sets: 8,
           reps: 1,
           weight: `${getIntensity(70)}% max effort - 30 sec sprint / 90 sec walk`,
@@ -221,7 +257,7 @@ const getCardioPlan = (level: number): WorkoutDay[] => {
         },
         {
           name: "Jump Rope Intervals",
-          image: "https://images.unsplash.com/photo-1599058917765-a780eda07a3e?auto=format&fit=crop&q=80&w=2069",
+          image: jumpRopeIntervals,
           sets: 4,
           reps: 1,
           weight: `${getDuration(3)} minutes continuous`,
@@ -235,7 +271,7 @@ const getCardioPlan = (level: number): WorkoutDay[] => {
       exercises: [
         {
           name: "Steady State Running",
-          image: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=2070",
+          image: steadyStateRunning,
           sets: 1,
           reps: 1,
           weight: `${getDuration(30)} minutes at ${getIntensity(65)}% max heart rate`,
@@ -243,7 +279,7 @@ const getCardioPlan = (level: number): WorkoutDay[] => {
         },
         {
           name: "Stair Climber",
-          image: "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&q=80&w=2031",
+          image: stairClimber,
           sets: 1,
           reps: 1,
           weight: `${getDuration(15)} minutes at ${getIntensity(70)}% max heart rate`,
@@ -257,7 +293,7 @@ const getCardioPlan = (level: number): WorkoutDay[] => {
       exercises: [
         {
           name: "Rowing Intervals",
-          image: "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&q=80&w=2031",
+          image: rowingIntervals,
           sets: 6,
           reps: 1,
           weight: `${getDuration(4)} minutes at ${getIntensity(75)}% effort`,
@@ -265,7 +301,7 @@ const getCardioPlan = (level: number): WorkoutDay[] => {
         },
         {
           name: "Cycling",
-          image: "https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?auto=format&fit=crop&q=80&w=2072",
+          image: cycling,
           sets: 1,
           reps: 1,
           weight: `${getDuration(20)} minutes at ${getIntensity(70)}% max heart rate`,
@@ -279,7 +315,7 @@ const getCardioPlan = (level: number): WorkoutDay[] => {
       exercises: [
         {
           name: "Track Intervals",
-          image: "https://images.unsplash.com/photo-1533681018184-68bd1d883b97?auto=format&fit=crop&q=80&w=2070",
+          image: trackIntervals,
           sets: 6,
           reps: 1,
           weight: `400m at ${getIntensity(85)}% effort`,
@@ -287,7 +323,7 @@ const getCardioPlan = (level: number): WorkoutDay[] => {
         },
         {
           name: "Agility Drills",
-          image: "https://images.unsplash.com/photo-1520941356584-6c337e35c8c5?auto=format&fit=crop&q=80&w=2070",
+          image: agilityDrills,
           sets: 4,
           reps: 1,
           weight: `${getDuration(5)} minutes ladder drills`,
@@ -301,7 +337,7 @@ const getCardioPlan = (level: number): WorkoutDay[] => {
       exercises: [
         {
           name: "Swimming",
-          image: "https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&q=80&w=2070",
+          image: swimming,
           sets: 1,
           reps: 1,
           weight: `${getDuration(20)} minutes freestyle`,
@@ -309,7 +345,7 @@ const getCardioPlan = (level: number): WorkoutDay[] => {
         },
         {
           name: "Elliptical",
-          image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=2070",
+          image: elliptical,
           sets: 1,
           reps: 1,
           weight: `${getDuration(15)} minutes at ${getIntensity(75)}% max heart rate`,
@@ -323,7 +359,7 @@ const getCardioPlan = (level: number): WorkoutDay[] => {
       exercises: [
         {
           name: "Long Distance Run",
-          image: "https://images.unsplash.com/photo-1486218119243-13883505764c?auto=format&fit=crop&q=80&w=2572",
+          image: longDistanceRun,
           sets: 1,
           reps: 1,
           weight: `${getDuration(45)} minutes at ${getIntensity(65)}% max heart rate`,
@@ -331,7 +367,7 @@ const getCardioPlan = (level: number): WorkoutDay[] => {
         },
         {
           name: "Cool Down Walk",
-          image: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&q=80&w=2070",
+          image: coolDownWalk,
           sets: 1,
           reps: 1,
           weight: "15 minutes easy pace",
@@ -345,7 +381,7 @@ const getCardioPlan = (level: number): WorkoutDay[] => {
       exercises: [
         {
           name: "Light Walking",
-          image: "https://images.unsplash.com/photo-1538905386057-4a5a580c45a3?auto=format&fit=crop&q=80&w=2070",
+          image: lightWalking,
           sets: 1,
           reps: 1,
           weight: `${getDuration(30)} minutes leisure walk`,
@@ -374,7 +410,7 @@ const getFlexibilityPlan = (level: number): WorkoutDay[] => {
       exercises: [
         { 
           name: 'Hamstring Stretch', 
-          image: 'https://images.unsplash.com/photo-1701826510609-b8d07deca0d4?auto=format&fit=crop&q=80&w=2070', 
+          image: hamstringStretch, 
           sets: 2, 
           reps: 1, 
           weight: `${getDuration(2)} mins`,
@@ -388,7 +424,7 @@ const getFlexibilityPlan = (level: number): WorkoutDay[] => {
       exercises: [
         { 
           name: 'Quad Stretch', 
-          image: 'https://images.unsplash.com/photo-1543971987-c328df79964d?auto=format&fit=crop&q=80&w=2070', 
+          image: quadStretch, 
           sets: 2,
           reps: 1, 
           weight: `${getDuration(2)} mins`, 
@@ -402,7 +438,7 @@ const getFlexibilityPlan = (level: number): WorkoutDay[] => {
       exercises: [
         { 
           name: 'Shoulder Stretch', 
-          image: 'https://images.unsplash.com/photo-1607914660217-754fdd90041d?auto=format&fit=crop&q=80&w=2070', 
+          image: shoulderStretch, 
           sets: 2, 
           reps: 1, 
           weight: `${getDuration(2)} mins`,
@@ -416,7 +452,7 @@ const getFlexibilityPlan = (level: number): WorkoutDay[] => {
       exercises: [
         { 
           name: 'Hamstring Stretch', 
-          image: 'https://images.unsplash.com/photo-1701826510609-b8d07deca0d4?auto=format&fit=crop&q=80&w=2070', 
+          image: hamstringStretch, 
           sets: 2, 
           reps: 1, 
           weight: `${getDuration(2)} mins`,
@@ -430,7 +466,7 @@ const getFlexibilityPlan = (level: number): WorkoutDay[] => {
       exercises: [
         { 
           name: 'Quad Stretch', 
-          image: 'https://images.unsplash.com/photo-1543971987-c328df79964d?auto=format&fit=crop&q=80&w=2070', 
+          image: quadStretch, 
           sets: 2, 
           reps: 1, 
           weight: `${getDuration(2)} mins`,
@@ -444,7 +480,7 @@ const getFlexibilityPlan = (level: number): WorkoutDay[] => {
       exercises: [
         { 
           name: 'Shoulder Stretch', 
-          image: 'https://images.unsplash.com/photo-1607914660217-754fdd90041d?auto=format&fit=crop&q=80&w=2070', 
+          image: shoulderStretch, 
           sets: 2, 
           reps: 1, 
           weight: `${getDuration(2)} mins`,
@@ -459,7 +495,7 @@ const getFlexibilityPlan = (level: number): WorkoutDay[] => {
       [
         { 
           name: 'Rest', 
-          image: 'https://images.unsplash.com/photo-1482861989355-efedb79967d9?auto=format&fit=crop&q=80&w=2070', 
+          image: restImage, 
           sets: 1, 
           reps: 1, 
           weight: 'N/A', 
@@ -476,28 +512,28 @@ const workoutPlans = [
     title: 'Cardio Training',
     description: 'Boost your heart health and burn calories',
     icon: Heart,
-    image: 'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&q=80&w=2574'
+    image: cardioImage // Use imported image
   },
   {
     type: 'strength',
     title: 'Strength Training',
     description: 'Build muscle and increase power',
     icon: Dumbbell,
-    image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=2570'
+    image: strengthImage // Use imported image
   },
   {
     type: 'flexibility',
     title: 'Flexibility',
     description: 'Improve mobility and reduce injury risk',
     icon: Tangent,
-    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=2594'
+    image: flexibilityImage // Use imported image
   },
   {
     type: 'endurance',
     title: 'Endurance Training',
     description: 'Enhance stamina and mental toughness',
     icon: Timer,
-    image: 'https://images.unsplash.com/photo-1486218119243-13883505764c?auto=format&fit=crop&q=80&w=2572'
+    image: enduranceImage // Use imported image
   }
 ];
 
