@@ -16,8 +16,8 @@ import {
 
 // Import local images
 import benchPress from './images/bench-press.jpg';
-import inclineDumbbellPress from './images/incline-dumbbell-press.jpg';
-import deadlifts from './images/deadlifts.jpg';
+import inclineDumbbellPress from './images/inclined-dumbell-press.png';
+import deadlifts from './images/deadlifts.png';
 import barbellRows from './images/barbell-rows.jpg';
 import squats from './images/squats.jpg';
 import legPress from './images/leg-press.jpg';
@@ -25,7 +25,7 @@ import militaryPress from './images/military-press.jpg';
 import lateralRaises from './images/lateral-raises.jpg';
 import powerCleans from './images/power-cleans.jpg';
 import pushPress from './images/push-press.jpg';
-import dumbbellComplex from './images/dumbbell-complex.jpg';
+import dumbbellComplex from './images/dumbell-complex.png';
 import coreCircuit from './images/core-circuit.jpg';
 import lightStretching from './images/light-stretching.jpg';
 import treadmillSprints from './images/treadmill-sprints.jpg';
