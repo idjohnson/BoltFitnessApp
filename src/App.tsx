@@ -355,6 +355,7 @@ const getCardioPlan = (level: number): WorkoutDay[] => {
     }
   ];
 };
+
 const getFlexibilityPlan = (level: number): WorkoutDay[] => {
   // Adjust difficulty based on level
   const getIntensity = (base: number) => {
@@ -376,9 +377,8 @@ const getFlexibilityPlan = (level: number): WorkoutDay[] => {
           image: 'https://images.unsplash.com/photo-1701826510609-b8d07deca0d4?auto=format&fit=crop&q=80&w=2070', 
           sets: 2, 
           reps: 1, 
-          weight: 'N/A', 
-          rest: 'N/A', 
-          duration: `${getDuration(2)} mins` 
+          weight: `${getDuration(2)} mins`,
+          rest: 'N/A' 
         }
       ] 
     },
@@ -391,9 +391,8 @@ const getFlexibilityPlan = (level: number): WorkoutDay[] => {
           image: 'https://images.unsplash.com/photo-1543971987-c328df79964d?auto=format&fit=crop&q=80&w=2070', 
           sets: 2,
           reps: 1, 
-          weight: 'N/A', 
-          rest: 'N/A', 
-          duration: `${getDuration(2)} mins` 
+          weight: `${getDuration(2)} mins`, 
+          rest: 'N/A'
         }
       ] 
     },
@@ -406,9 +405,8 @@ const getFlexibilityPlan = (level: number): WorkoutDay[] => {
           image: 'https://images.unsplash.com/photo-1607914660217-754fdd90041d?auto=format&fit=crop&q=80&w=2070', 
           sets: 2, 
           reps: 1, 
-          weight: 'N/A', 
-          rest: 'N/A', 
-          duration: `${getDuration(2)} mins` 
+          weight: `${getDuration(2)} mins`,
+          rest: 'N/A'
         }
       ] 
     },
@@ -421,9 +419,8 @@ const getFlexibilityPlan = (level: number): WorkoutDay[] => {
           image: 'https://images.unsplash.com/photo-1701826510609-b8d07deca0d4?auto=format&fit=crop&q=80&w=2070', 
           sets: 2, 
           reps: 1, 
-          weight: 'N/A', 
-          rest: 'N/A', 
-          duration: `${getDuration(2)} mins` 
+          weight: `${getDuration(2)} mins`,
+          rest: 'N/A'
         }
       ] 
     },
@@ -436,9 +433,8 @@ const getFlexibilityPlan = (level: number): WorkoutDay[] => {
           image: 'https://images.unsplash.com/photo-1543971987-c328df79964d?auto=format&fit=crop&q=80&w=2070', 
           sets: 2, 
           reps: 1, 
-          weight: 'N/A', 
-          rest: 'N/A', 
-          duration: `${getDuration(2)} mins` 
+          weight: `${getDuration(2)} mins`,
+          rest: 'N/A'
         }
       ] 
     },
@@ -451,9 +447,8 @@ const getFlexibilityPlan = (level: number): WorkoutDay[] => {
           image: 'https://images.unsplash.com/photo-1607914660217-754fdd90041d?auto=format&fit=crop&q=80&w=2070', 
           sets: 2, 
           reps: 1, 
-          weight: 'N/A', 
-          rest: 'N/A', 
-          duration: `${getDuration(2)} mins` 
+          weight: `${getDuration(2)} mins`,
+          rest: 'N/A'
         }
       ] 
     },
@@ -464,7 +459,7 @@ const getFlexibilityPlan = (level: number): WorkoutDay[] => {
       [
         { 
           name: 'Rest', 
-          image: '', 
+          image: 'https://images.unsplash.com/photo-1482861989355-efedb79967d9?auto=format&fit=crop&q=80&w=2070', 
           sets: 1, 
           reps: 1, 
           weight: 'N/A', 
@@ -473,7 +468,6 @@ const getFlexibilityPlan = (level: number): WorkoutDay[] => {
       ] 
     },
   ];
-};
 };
 
 const workoutPlans = [
@@ -680,6 +674,73 @@ export default function App() {
                         <div className="col-span-2 text-gray-500">
                           Rest: {exercise.rest}
                         </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (selectedWorkout === 'flexibility' && level !== null) {
+    const workoutPlan = getFlexibilityPlan(level);
+
+    return (
+      <div className="min-h-screen bg-gray-100 p-8">
+        <div className="max-w-6xl mx-auto">
+          <button
+            onClick={() => setLevel(null)}
+            className="flex items-center text-gray-600 hover:text-gray-900 mb-8"
+          >
+            <ChevronLeft className="w-5 h-5 mr-2" />
+            Back to Level Selection
+          </button>
+
+          <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-3xl font-bold">Your 7-Day Cardio Plan</h2>
+              <div className="flex items-center space-x-2">
+                <p className="text-lg">Level: {level}</p>
+                <div className="flex">
+                  {renderStars(level)}
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {workoutPlan.map((day, index) => (
+                <div key={index} className="bg-gray-50 rounded-xl p-6 shadow-md">
+                  <div className="flex items-center mb-4">
+                    <CalendarDays className="w-5 h-5 text-blue-500 mr-2" />
+                    <h3 className="text-xl font-semibold">{day.day}</h3>
+                  </div>
+                  <p className="text-gray-600 mb-4">{day.focus}</p>
+
+                  {day.exercises.map((exercise, exIndex) => (
+                    <div key={exIndex} className="mb-4 last:mb-0">
+                      <div className="aspect-video rounded-lg overflow-hidden mb-3">
+                        <img
+                          src={exercise.image}
+                          alt={exercise.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <h4 className="font-semibold mb-2">{exercise.name}</h4>
+                      <div className="grid grid-cols-2 gap-2 text-sm">
+                        <div className="flex items-center">
+                          <Flame className="w-4 h-4 mr-1 text-red-500" />
+                          <span>{exercise.weight}</span>
+                        </div>
+                        {exercise.rest !== "N/A" && (
+                          <div className="flex items-center">
+                            <Clock className="w-4 h-4 mr-1 text-gray-500" />
+                            <span>Rest: {exercise.rest}</span>
+                          </div>
+                        )}
                       </div>
                     </div>
                   ))}
