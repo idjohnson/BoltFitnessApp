@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: boltfitnessapp-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: boltfitnessapp
+  template:
+    metadata:
+      labels:
+        app: boltfitnessapp
+    spec:
+      containers:
+      - name: boltfitnessapp
+        image: ghcr.io/idjohnson/boltfitnessapp:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5173
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: boltfitnessapp-service
+spec:
+  selector:
+    app: boltfitnessapp
+  ports:
+    - protocol: TCP
+      port: 5173
+      targetPort: 5173
+  type: ClusterIP
